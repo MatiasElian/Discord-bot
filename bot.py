@@ -29,7 +29,7 @@ async def on_ready():
     print(f'✅ Conectado como {bot.user}')
     cambiar_nicknames.start()
 
-@tasks.loop(hours=24)  # Para pruebas rápidas, cambia a hours=24 después
+@tasks.loop(hours=8)  # Para pruebas rápidas, cambia a hours=24 después
 async def cambiar_nicknames():
     print("🔄 Ejecutando cambio de nicknames...")
 
