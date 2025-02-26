@@ -19,9 +19,7 @@ intents.members = True  # Necesario para acceder a los miembros
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Lista de posibles apodos
-nicknames = ["Momolico", "Me duele el qlo", "Niigru", "MUUUY gei", "Puuuto Puuuutoo", 
-             "Hugo", "Juano", "MAINCROF", "Me cago con hambre", "SHALALA", "Pacubet","Nabuu", "Necho", "Qchame una cosha Piibe", "Melomano", 
-             "Yogurcito de Yogur", "Me comi un trava", "PUTO GORDO", "El one piece es ADO", "Pendejo Femboy", "CULO sucio"]
+nicknames = ["Momolico","Me duele el qlo","Niigru","MUUUY gei","Puuuto Puuuutoo","Hugo","HUGUITO","Huguisanfer","Juano","Falnermu","mufalner","mulanfer","tota","star Kgando","p1pardium","boludo gordo","ROGELIO FUNES MORI","Iknoshia?","Tony tony choppa","Tony","mat11","matonse","NabO","MediaPiZZa","PERMATRAGO","PADALUSTRO","CROTOFROTO","UXIONO","SOBO","TRUJO","MAINCROF","Me cago con hambre","SHALALA","Pacubet","Nabuu","Necho","Qchame una cosha Piibe","Melomano","Yogurcito de Yogur","Me comi un trava","PUTO GORDO","El one piece es ADO","Pendejo Femboy","CULO sucio","Space Potat0","pakitoamoroso","TONTA PELADA","tizi","QUIQUE QUISPE OE","ENRIQUE","Un palo y una tela","tengo frio y estoy mojado","Renshi","Ignacio Nacho Nax","EL RATAS","Fan de las ventanas","autopista","ENRIQUE DOS SANTOS AVEIRO","QUIQUE QUISPE MAMANI QUISPE"]
 
 # Diccionario para llevar registro de los nombres usados
 used_nicknames = {}
