@@ -2,6 +2,7 @@ import discord
 from discord.ext import tasks, commands
 import os
 import random
+import time  # Para manejar el tiempo
 from dotenv import load_dotenv
 
 # Cargar variables de entorno
@@ -24,6 +25,10 @@ nicknames = ["Momolico","Me duele el qlo","Niigru","MUUUY gei","Puuuto Puuuutoo"
 # Diccionario para llevar registro de los nombres usados
 used_nicknames = {}
 
+# Variables para manejar el tiempo
+last_change_time = time.time()  # Guarda el momento del último cambio
+change_interval = 8 * 3600  # 8 horas en segundos (ajusta a 24 * 3600 para 24h)
+
 @bot.event
 async def on_ready():
     print(f'✅ Conectado como {bot.user}')
@@ -31,6 +36,8 @@ async def on_ready():
 
 @tasks.loop(hours=8)  # Para pruebas rápidas, cambia a hours=24 después
 async def cambiar_nicknames():
+    global last_change_time
+    last_change_time = time.time()  # Guarda el tiempo del último cambio
     print("🔄 Ejecutando cambio de nicknames...")
 
     guild = bot.get_guild(GUILD_ID)
@@ -67,6 +74,19 @@ async def cambiar_nicknames():
             print(f"❌ No tengo permisos para cambiar el nick de {member.name}.")
         except discord.HTTPException as e:
             print(f"⚠️ Error al cambiar nickname de {member.name}: {e}")
+
+# Comando para ver el tiempo restante
+@bot.command(name="TimeP")
+async def tiempo_restante(ctx):
+    global last_change_time
+    time_elapsed = time.time() - last_change_time
+    time_remaining = max(change_interval - time_elapsed, 0)  # Evita números negativos
+
+    hours = int(time_remaining // 3600)
+    minutes = int((time_remaining % 3600) // 60)
+    seconds = int(time_remaining % 60)
+
+    await ctx.send(f"⏳ **Tiempo restante para el próximo cambio de nombres:** {hours} horas, {minutes} minutos y {seconds} segundos.")
 
 bot.run(TOKEN)
 
