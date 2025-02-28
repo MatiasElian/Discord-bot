@@ -15,6 +15,7 @@ ROLE_ID = int(os.getenv('ROLE_ID'))
 # Configuración de intents
 intents = discord.Intents.default()
 intents.members = True  # Necesario para acceder a los miembros
+intents.message_content = True  # Necesario para recibir comandos
 
 # Crear el bot
 bot = commands.Bot(command_prefix="!", intents=intents)
